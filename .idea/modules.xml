@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Spring.iml" filepath="$PROJECT_DIR$/.idea/Spring.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mildevs-alunos-api/mildevs-alunos-api.iml" filepath="$PROJECT_DIR$/mildevs-alunos-api/mildevs-alunos-api.iml" />
     </modules>
   </component>
 </project>

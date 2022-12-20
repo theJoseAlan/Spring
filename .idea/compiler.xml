@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="mildevs-alunos-api" target="17" />
+      <module name="mildevs-alunos-api" target="19" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

@@ -7,8 +7,8 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
-/*
-@Repository
+
+/*@Repository
 public interface AlunoRepository extends CrudRepository<Aluno, Long> {
 
 }*/

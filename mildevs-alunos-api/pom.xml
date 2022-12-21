@@ -8,11 +8,11 @@
 		<version>3.0.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>br.com.mildevs</groupId>
-	<artifactId>mildevs-alunos-api</artifactId>
+	<groupId>br.com.mildevs.pecas.api</groupId>
+	<artifactId>Sistema-de-Pecas</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>mildevs-alunos-api</name>
-	<description>Primiero projeto</description>
+	<name>Sistema-de-Pecas</name>
+	<description>Api de peças</description>
 	<properties>
 		<java.version>19</java.version>
 	</properties>
@@ -42,16 +42,11 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>jakarta.annotation</groupId>
-			<artifactId>jakarta.annotation-api</artifactId>
-			<version>2.1.0-B1</version>
-		</dependency>
 
 		<dependency>
 			<groupId>org.hibernate.validator</groupId>
 			<artifactId>hibernate-validator</artifactId>
-			<version>6.0.13.Final</version>
+			<version>8.0.0.Final</version>
 		</dependency>
 
 

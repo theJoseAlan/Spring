@@ -1,58 +1,49 @@
-package br.com.mildevs.mildevsalunosapi.entity;
+package br.com.mildevs.mildevsalunosapi.dto;
 
-import jakarta.persistence.*;
+import br.com.mildevs.mildevsalunosapi.entity.Aluno;
+import jakarta.persistence.Column;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import org.hibernate.validator.constraints.br.CPF;
+import org.springframework.beans.BeanUtils;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.lang.NonNull;
-
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
-import java.util.Locale;
 
-@Entity
-public class Aluno {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long matricula;
+public class CriaAlunoDTO {
 
 
-    @Column(nullable = false)
-    //@NotBlank
+
+
+    @NotBlank
     private String nome;
 
-    @Column(name = "data_nascimento", nullable = false)
+
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private LocalDate dataNascimento;
 
-    @Column(unique = true)
-    //@CPF
+
+    @CPF
     private String cpf;
 
-    //@NotNull(message = "valorMensalidade não pode ser nulo")
-    @Column(name = "valor_mensalidade", nullable = false)
+    @NotNull(message = "valorMensalidade não pode ser nulo")
     private Float valorMensalidade;
 
-    public Aluno(){
-
-    }
-
-    public Aluno(long matricula, String nome, LocalDate dataNascimento, String cpf, Float valorMesalidade) {
-        this.matricula = matricula;
+    public CriaAlunoDTO(@NotBlank String nome, LocalDate dataNascimento, @CPF String cpf,
+                        @NotNull(message = "valor mensalidade não pode ser nulo") Float valorMensalidade) {
         this.nome = nome;
         this.dataNascimento = dataNascimento;
         this.cpf = cpf;
         this.valorMensalidade = valorMensalidade;
     }
 
-    public long getMatricula() {
-        return matricula;
-    }
-
-    public void setMatricula(long matricula) {
-        this.matricula = matricula;
+    public Aluno toEntity(){
+        Aluno aluno = new Aluno();
+        BeanUtils.copyProperties(this, aluno);
+        return aluno;
     }
 
     public String getNome() {
@@ -83,8 +74,7 @@ public class Aluno {
         return valorMensalidade;
     }
 
-    public void setValorMensalidade(Float valorMesalidade) {
-        this.valorMensalidade = valorMesalidade;
+    public void setValorMensalidade(Float valorMensalidade) {
+        this.valorMensalidade = valorMensalidade;
     }
 }
-

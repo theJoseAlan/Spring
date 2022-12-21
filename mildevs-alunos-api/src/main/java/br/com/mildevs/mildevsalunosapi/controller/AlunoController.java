@@ -1,13 +1,18 @@
 package br.com.mildevs.mildevsalunosapi.controller;
 
+import br.com.mildevs.mildevsalunosapi.dto.CriaAlunoDTO;
 import br.com.mildevs.mildevsalunosapi.entity.Aluno;
+import br.com.mildevs.mildevsalunosapi.exception.ErroDeNegocioException;
 import br.com.mildevs.mildevsalunosapi.repository.AlunoRepository;
 import br.com.mildevs.mildevsalunosapi.service.AlunoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 import java.util.OptionalInt;
@@ -22,7 +27,7 @@ public class AlunoController {
 
     @ResponseStatus(code = HttpStatus.CREATED)
     @PostMapping
-    public boolean insereAluno(@RequestBody Aluno aluno){
+    public boolean insereAluno(@RequestBody @Valid CriaAlunoDTO aluno) throws ErroDeNegocioException{
         return alunoService.insereAluno(aluno);
     }
 

@@ -1,7 +1,10 @@
 package br.com.mildevs.mildevsalunosapi.service;
 
+import br.com.mildevs.mildevsalunosapi.dto.CriaAlunoDTO;
 import br.com.mildevs.mildevsalunosapi.entity.Aluno;
+import br.com.mildevs.mildevsalunosapi.exception.ErroDeNegocioException;
 import br.com.mildevs.mildevsalunosapi.repository.AlunoRepository;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,10 +18,12 @@ public class AlunoService {
     AlunoRepository alunoRepository;
 
     //Create
-    public boolean insereAluno(Aluno aluno){
-        if(alunoRepository.existsById(aluno.getMatricula())){
-            return false;
-        }
+    public boolean insereAluno(CriaAlunoDTO alunoDto) throws ErroDeNegocioException {
+        /*if(alunoRepository.existsById(aluno.getMatricula())){
+            throw new ErroDeNegocioException("Já existe um aluno na base com essa matricula");
+        }*/
+        Aluno aluno = new Aluno();
+        BeanUtils.copyProperties(alunoDto, aluno);
 
         alunoRepository.save(aluno);
 
